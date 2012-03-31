@@ -7,6 +7,3 @@ function googleLocation($address) {
   $latlng = array('lat' => $lat, 'lng' => $lng);
   return $latlng;
 }
-
-$place = googleLocation("51 McGuire St., Metuchen, NJ");
-print_r($place);
