@@ -1,10 +1,18 @@
 <?php
   require_once('config.php');
   require_once('mongo.php');
+  require_once('points.php');
 
   $collection = $db->selectCollection('twitter');  
 
-  function getTweetSet($lat, $lng, $rad) {
+  foreach ($pointsList as $point) {
+    $currLat = $point['lat'];
+    $currLong = $point['lng'];
+
+    insertTweets($currLat, $currLong, 15, $collection);
+  }
+
+  function insertTweets($lat, $lng, $rad, $set) {
     $tweetSet = json_decode(file_get_contents("http://search.twitter.com/search.json?q="."a"."&geocode=".$lat.",".$lng.",".$rad."mi&result_type=mixed&count=10&lang=en"));	
 
     $results = $tweetSet->results;
@@ -24,7 +32,7 @@
         "lng" => $lng
       );
 
-      $collection->insert($entry);
+      $set->insert($entry);
     }
   }
 

@@ -2,12 +2,15 @@ $(document).ready( function(){
   
   var infoList = $('div#info');
 
-  $.ajax({
-    type: 'POST',
-    url: 'backend/controller.php',
-    data: 'twitter',
-    success: function(response) {
-      console.log(response);
-    }
+  $('li.active').on('click', function() {
+    $.ajax({
+      type: 'POST',
+      url: 'backend/controller.php',
+      data: {'lens': 'groupon'},
+      success: function(response) {
+        console.log("response: " +  response);
+      }
+    });
+  })
 
 }); //end docReady
