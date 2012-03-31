@@ -42,7 +42,7 @@ results=>listing_id
 		$item = array(
 			"listing_id" => $result->listing_id,
 			"title" => $result->title,
-			"description => "$result->description,
+			"description" => $result->description,
 			"price" => $result->price,
 			"url" => $result->url,
 			"img" => etsyGetImage($result->listing_id),
@@ -57,7 +57,7 @@ function etsyGetImage($listingID) {
 	$type_response="listings/" . $listingID;
 	$api_call=$type_response;
 
-	$response = etsyRequest(htmlentities($api_call));
+	$response = etsyRequest(urlencode($api_call));
 
 	//Not Found
 	if(strlen($response) == 0) {
