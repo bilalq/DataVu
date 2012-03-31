@@ -1,13 +1,9 @@
 <?php
   require_once('config.php');
   require_once('mongo.php');
+  require_once('points.php');
 
   $collection = $db->selectCollection('twitter');  
-
-  $pointsList = array (
-    "13.213, 13.12312",
-    "34.21321, 32.1423"
-  );
 
   foreach ($pointsList as $point) {
     $currLat = $point['lat'];
