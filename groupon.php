@@ -1,6 +1,6 @@
 <?php
 
-include 'debug.php';
+require_once 'debug.php';
 
 #Hard Coded Bad Stuff
 function isVerifiedState($location) {
@@ -21,7 +21,6 @@ function encodeJsonDeal($deal) {
 			//Make sure it isn't sold out
 			if(!$option->isSoldOut) {
 
-
 				foreach($option->redemptionLocations as $location) {
 
 					//Make sure its in New Jersey, hardcoded sadness
@@ -35,7 +34,8 @@ function encodeJsonDeal($deal) {
 							"expires" => $option->expiresAt,
 							"dealUrl" => $deal->dealUrl,
 							"img" => $deal->sidebarImageUrl,
-							"pitchHtml" => $deal->pitchHtml,
+							"description" => $option->details[0]->description,
+#							"pitchHtml" => $deal->pitchHtml,
 							"lng" => $location->lng,
 							"lat" => $location->lat,
 						);
@@ -70,6 +70,7 @@ function grouponGetDealsByDivision($division_id) {
 
 	//Something failed
 	if(empty($jsons))  {
+		echo "Failed JSON Request Son!";
 		return '';
 	}
 
@@ -83,7 +84,7 @@ function grouponRequest($request) {
 
 	$apikey = '&client_id=' . $groupon_appid;
 	$base = 'https://api.groupon.com/v2/';
-	$url = urlencode($base . $request . $apikey);
+	$url = $base . $request . $apikey;
 
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
