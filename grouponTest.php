@@ -1,7 +1,10 @@
 <?php
 
-include 'groupon.php';
+require_once 'groupon.php';
+require_once 'debug.php';
 
-grouponGetDealsByDivision('central-jersey');
+$jsonz = grouponGetDealsByDivision('central-jersey');
+
+debug($jsonz);
 
 ?>
