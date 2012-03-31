@@ -16,14 +16,16 @@
         <br />stuff goes here
       </div>
       <div id="sidebar" class="pull-right">
-        <ul class="nav nav-list well">
-          <li class="nav-header">Lenses</li>
+        <ul id="info" class="nav nav-list well">
+          <li class="nav-header">Lens</li>
             <li class="active"><a href="#">Twitter</a></li>
             <li><a href="#">Groupon</a></li>
             <li><a href="#">Craigslist</a></li>
+        </ul>
+        <ul id="info">
           <li class="nav-header">Information</li>
-            <li><img src="https://twimg0-a.akamaihd.net/profile_images/1935926580/Capture_reasonably_small.PNG"</li>
-            <li>This is where a tweet would go. Amazing, no?</li>
+            <li><img id="photo" src="https://twimg0-a.akamaihd.net/profile_images/1935926580/Capture_reasonably_small.PNG"</li>
+            <li id="desc">This is where a tweet would go. Amazing, no?</li>
         </ul>
       </div>
     </div>
