@@ -1,0 +1,14 @@
+div#wrapper {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+div#sidebar {
+  width: 20%;
+  float: right;
+}
+
+div#map {
+  float:left;
+  width: 70%%;
+}
