@@ -6,8 +6,14 @@ require_once 'mongo.php';
 
 $collection = $db->selectCollection('groupon');
 
-$collection->insert(grouponGetDealsByDivision('central-jersey'));
-$collection->insert(grouponGetDealsByDivision('north-jersey'));
+#$collection->insert(
+
+$centJerz = grouponGetDealsByDivision('central-jersey');
+foreach($centJerz as $deal) {
+	$collection->insert($deal);
+}
+
+$northJerz = grouponGetDealsByDivision('north-jersey');
 
 #Hard Coded Bad Stuff
 function isVerifiedState($location) {

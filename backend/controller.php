@@ -9,7 +9,9 @@ if(!empty($_POST['lens'])) {
 	switch($lens) {
 		case "twitter":
 			$collection = $db->selectCollection('twitter');
-			echo $collection->find();
+			$cursor = $collection->find();
+			foreach($cursor as $obj) {
+
 
 			break;
 		case "groupon":
