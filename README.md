@@ -9,6 +9,7 @@ TODO
 
 * Jerry 
 	* GroupOn
+    * Stop breaking git
 		* Get lng/lat division_ids
 		* JSON Derulo!
 			* JSONize the GroupOn data to only include stuff we need.
