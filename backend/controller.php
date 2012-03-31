@@ -2,26 +2,49 @@
 
 require_once 'mongo.php';
 
-$lens = $_POST['lens'];
+if(!empty($_POST['lens'])) {
+
+	$lens = $_POST['lens'];
 
 	switch($lens) {
-		case "twitter":
-			$collection = $db->selectCollection('twitter');
-			$cursor = $collection->find();
-			foreach($cursor as $obj) {
+	case "twitter":
+		$collection = $db->selectCollection('twitter');
+		$cursor = $collection->find();
 
+		$congregate = array();
 
-    break;
-  case "groupon":
-    $collection = $db->selectCollection('groupon');
-    echo $collection->find();
+		foreach($cursor as $obj) {
+			array_push($congregate, $obj);
+		}
+		$jsons = json_encode($congregate);
+		echo $jsons;
+		break;
+	case "groupon":
+		$collection = $db->selectCollection('groupon');
+		$cursor = $collection->find();
 
-    break;
-  case "craigslist":
-    $collection = $db->selectCollection('craigslist');
+		$congregate = array();
 
-    break;
-  default:
-    echo "Wrong Lens type";
+		foreach($cursor as $obj) {
+			array_push($congregate, $obj);
+		}
+		$jsons = json_encode($congregate);
+		echo $jsons;
+		break;
+	case "craigslist":
+		$collection = $db->selectCollection('craigslist');
+		$cursor = $collection->find();
+
+		$congregate = array();
+
+		foreach($cursor as $obj) {
+			array_push($congregate, $obj);
+		}
+		$jsons = json_encode($congregate);
+		echo $jsons;
+		break;
+	default:
+		echo "Wrong Lens type";
+	}
 }
 
