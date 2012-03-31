@@ -13,11 +13,13 @@
       $handle = $tweet->from_user;
       $full_name = $tweet->from_user_name;
       $text = $tweet->text;
+      $photo = $tweet->profile_image_url_https;
 
       $entry = array(
         "handle" => $handle,
         "name" => $full_name,
         "tweet" => $text,
+        "img" => $photo,
         "lat" => $lat,
         "lng" => $lng
       );
