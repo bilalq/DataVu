@@ -9,7 +9,6 @@ $collection = $db->selectCollection('groupon');
 $collection->insert(grouponGetDealsByDivision('central-jersey'));
 $collection->insert(grouponGetDealsByDivision('north-jersey'));
 
-
 #Hard Coded Bad Stuff
 function isVerifiedState($location) {
 	$hardcodeSadness = "New Jersey";
@@ -35,11 +34,11 @@ function grouponGetDealsByDivision($division_id) {
 
 	$deals = json_decode($jsons);
 
-	return encodeJson($deals);
+	return encodeDeals($deals);
 }
 
 function grouponRequest($request) {
-	require_once 'config.php';
+	include 'config.php';
 
 	$apikey = '&client_id=' . $groupon_appid;
 	$base = 'https://api.groupon.com/v2/';
@@ -58,7 +57,7 @@ function grouponRequest($request) {
 	return $response_body;
 }
 
-function encodeJsonDeal($deal) {
+function encodeDeal($deal) {
 
 	if(!$deal->isSoldOut) {
 		foreach($deal->options as $option) {
@@ -94,17 +93,17 @@ function encodeJsonDeal($deal) {
 	}
 }
 
-function encodeJson($deals) {
+function encodeDeals($deals) {
 	$arrDeals = array();
 
 	foreach($deals->deals as $deal) {
-		$jsonDeal = encodeJsonDeal($deal);
+		$jsonDeal = encodeDeal($deal);
 		if(!empty($jsonDeal)) {
 			array_push($arrDeals, $jsonDeal);
 		}
 	}
 
-	return json_encode($arrDeals);
+	return $arrDeals;
 }
 
 ?>
