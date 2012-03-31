@@ -6,8 +6,8 @@ require_once 'mongo.php';
 
 $collection = $db->selectCollection('groupon');
 
-$collection->insert(grouponGetDealsByDivision('central-jersey');
-$collection->insert(grouponGetDealsByDivision('north-jersey');
+$collection->insert(grouponGetDealsByDivision('central-jersey'));
+$collection->insert(grouponGetDealsByDivision('north-jersey'));
 
 
 #Hard Coded Bad Stuff
