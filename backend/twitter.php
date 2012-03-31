@@ -4,7 +4,19 @@
 
   $collection = $db->selectCollection('twitter');  
 
-  function getTweetSet($lat, $lng, $rad) {
+  $pointsList = array (
+    "13.213, 13.12312",
+    "34.21321, 32.1423"
+  );
+
+  foreach ($pointsList as $point) {
+    $currLat = $point['lat'];
+    $currLong = $point['lng'];
+
+    insertTweets($currLat, $currLong, 15, $collection);
+  }
+
+  function insertTweets($lat, $lng, $rad, $set) {
     $tweetSet = json_decode(file_get_contents("http://search.twitter.com/search.json?q="."a"."&geocode=".$lat.",".$lng.",".$rad."mi&result_type=mixed&count=10&lang=en"));	
 
     $results = $tweetSet->results;
@@ -24,7 +36,7 @@
         "lng" => $lng
       );
 
-      $collection->insert($entry);
+      $set->insert($entry);
     }
   }
 
