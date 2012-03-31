@@ -1,9 +1,7 @@
 <?php
-	function debug($stuff) {
-		if(!empty($DEBUG)) {
-			echo "<pre>";
-			print_r($stuff);
-			echo "</pre>";
-		}
-	}
+function debug($stuff) {
+	echo "<pre>";
+	print_r($stuff);
+	echo "</pre>";
+}
 ?>
