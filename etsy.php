@@ -1,6 +1,5 @@
 <?php
 
-include("config.php");
 
 $keyword = $_GET["keyword"];
 
@@ -86,6 +85,8 @@ function etsyGetImage($listingID) {
 }
 
 function etsyRequest($request) {
+	include "config.php";
+
 	$apikey = "&api_key=" . $etsy_appid;
 	$base = "http://openapi.etsy.com/v2/";
 	$url = $base . $requests . $apikey;
