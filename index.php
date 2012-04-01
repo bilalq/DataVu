@@ -10,10 +10,9 @@
   <body>
     <div id="wrapper">
       <div class="page-header"><h1>DataVu <small>Twitter</small></h1></div>
+      <div id="preload"></div>
 
-      <div id="map"> 
-        <img id="start" src="http://a0.twimg.com/profile_images/1794057463/livelevated-classified-ar-9_normal.jpg">
-      </div>
+      <canvas id="map"> </canvas>
       <div id="sidebar" class="pull-right well">
         <ul id="info" class="nav nav-list">
           <li class="nav-header">Lens</li>
@@ -23,8 +22,8 @@
         </ul>
         <ul id="info" class="nav nav-list">
           <li class="nav-header">Information</li>
-          <li><img id="photo" src="https://twimg0-a.akamaihd.net/profile_images/1935926580/Capture_reasonably_small.PNG"</li>
-          <li id="desc">This is where a tweet would go. Amazing, no?</li>
+          <li><img id="photo" src="https://si0.twimg.com/profile_images/1808324679/image_normal.jpg"</li>
+          <li id="desc">This is where a tweet would go. This is filler till then, no?</li>
         </ul>
       </div>
     </div>
