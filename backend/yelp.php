@@ -20,11 +20,10 @@ foreach ($pointsList as $point) {
 	$lat = $point['lat'];
 	$lng =$point['lng'];
 
-	yelpGetRest($lat, $lng, 15);
-	break;
+	yelpGetRest($lat, $lng, 15, $collection);
 }
 
-function yelpGetRest($lat, $lng, $radius) {
+function yelpGetRest($lat, $lng, $radius, $collection) {
 
 /*
 	tl_lat	 double	 required	 Top left latitude of bounding box
@@ -41,7 +40,7 @@ function yelpGetRest($lat, $lng, $radius) {
 	
 	$request = '?lat=' . $lat . '&long=' . $lng . '&radius=' . $radius;
 
-	$request = $request . '&limit=1';
+	$request = $request; # . '&limit=1';
 	
 	$jsonData = yelpRequest($request);
 
@@ -52,19 +51,17 @@ function yelpGetRest($lat, $lng, $radius) {
 
 	$rests = json_decode($jsonData);
 
-	debug($rests);
-
-	yelpProcessJson($rests);
+	yelpProcessJson($rests,$collection);
 }
 
 function isValid($state) {
-	if(strcmp($state, "New Jersey") == 0) {
+	if(strcmp($state, "NJ") == 0) {
 		return true;
 	}
 	return false;
 }
 
-function yelpProcessJson($jsonData) {
+function yelpProcessJson($jsonData, $collection) {
 	foreach($jsonData->businesses as $business) {
 		if(isValid($business->state)) {
 
@@ -83,8 +80,6 @@ function yelpProcessJson($jsonData) {
 				),
 			);
 			
-			echo $business_arr;
-
 			$collection->insert($business_arr);
 		}
 	}
