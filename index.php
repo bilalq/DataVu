@@ -12,14 +12,16 @@
   <body>
     <div id="wrapper">
       <div class="page-header"><h1>DataVu <small>Twitter</small></h1></div>
-
-      <div id="myMap"></div>
+		
+<div  id="myMapContainer">
+	  <div id="myMap"></div>
+</div>
       <div id="sidebar" class="pull-right well">
         <ul id="info" class="nav nav-list">
           <li class="nav-header">Lens</li>
           <li id="twitter"><a href="#">Twitter</a></li>
           <li id="groupon"><a href="#">Groupon</a></li>
-          <li id="craigslist"><a href="#">Craigslist</a></li>
+          <li id="yelp"><a href="#">Yelp</a></li>
         </ul>
         <ul id="info" class="nav nav-list">
           <li class="nav-header">Information</li>
