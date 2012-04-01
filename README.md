@@ -12,3 +12,4 @@ TODO
 
   * Map
     * Needs to draw properly
+    * Change of plans: use bing maps sdk
