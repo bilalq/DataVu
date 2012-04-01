@@ -36,7 +36,7 @@ $(document).ready( function(){
     var pushpinOptions = {icon:thumb, width: 48, height: 48}; 
     var pushpin= new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(lat,lng), pushpinOptions); 
     pushpinClick = Microsoft.Maps.Events.addHandler(pushpin, 'click', function() {
-      picBox.html('<img src="'+thumb'">');
+      picBox.html('<img src=\"'+thumb+'\">');
       textBox.html(text);
     });
     map.entities.push(pushpin);
@@ -89,6 +89,7 @@ $(document).ready( function(){
       var text = "<h3>"+ptr.name+"<small>"+ptr.handle+"</h3><br /><p>"+ptr.tweet+"</p>";
       var target = addPin(lat, lng, pic, text);
     };
+  });
 
 
 
