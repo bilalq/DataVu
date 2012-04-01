@@ -16,7 +16,7 @@ div#sidebar {
 }
 
 #myMapContainer {
-  	float:left;
+  float:left;
 	width: 800px;
 	height: 800px;
 	overflow: hidden;

@@ -33,6 +33,7 @@ $(document).ready( function(){
   };  
 
   function addPin(lat, lng, thumb, text) {
+    map.entities.clear();
     var pushpinOptions = {icon:thumb, width: 48, height: 48}; 
     var pushpin= new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(lat,lng), pushpinOptions); 
     pushpinClick = Microsoft.Maps.Events.addHandler(pushpin, 'click', function() {
@@ -48,14 +49,9 @@ $(document).ready( function(){
     data: {'lens': 'twitter'},
     success: function(response) {
         twitterData = $.parseJSON(response);
-        console.log('success');
         for (var i = 0; i < twitterData.length; i++) {
           var current = twitterData[i];
-          var pic = current.img;
-          var tweetID = current._id.$id;
-          var image = new Image();
-          image.src = pic;
-          twitterImages.push(image);
+          twitterImages.push(current);
           $.ajax({
             type: 'POST',
             url: 'backend/controller.php',
@@ -64,10 +60,7 @@ $(document).ready( function(){
                 grouponData = $.parseJSON(response);
                 for (var i = 0; i < grouponData.length; i++) {
                   var curr = grouponData[i];
-                  var pic = curr.img;
-                  var image = new Image();
-                  image.src = pic;
-                  groupImages.push(image);
+                  groupImages.push(curr);
                 }
             }
           });
@@ -79,8 +72,7 @@ $(document).ready( function(){
    * Bing Maps exectution
    */
   getMap();
-  $('li#twitter').on('click', function(event){
-    event.preventDefautlt();
+  $('li#twitter').on('click', function(){
     for (var i = 0; i < twitterImages.length; i++) {
       var ptr = twitterImages[i];
       var lat = ptr.lat;
@@ -90,7 +82,14 @@ $(document).ready( function(){
       var target = addPin(lat, lng, pic, text);
     };
   });
-
-
-
+  $('li#groupon').on('click', function(){
+    for (var i = 0; i < groupImages.length; i++) {
+      var ptr = groupImages[i];
+      var lat = ptr.lat;
+      var lng = ptr.lng;
+      var pic = ptr.img;
+      var text = "<h3><a href=\""+ptr.url+"\">"+ptr.title+"</a><small> "+ptr.price+"</h3><br /><p>"+ptr.description+"<br />Expires: "+ptr.expires+"</p>";
+      var target = addPin(lat, lng, pic, text);
+    };
+  });
 }); //end docReady
