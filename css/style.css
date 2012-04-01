@@ -6,6 +6,10 @@ div#wrapper {
 div#sidebar {
   width: 20%;
   float: right;
+  position: fixed;
+  right: 10;
+  height: 525px;
+  overflow-y: scroll;
 }
 
 #map {

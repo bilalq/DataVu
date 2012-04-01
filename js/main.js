@@ -9,6 +9,9 @@ $(document).ready( function(){
   var picBox = $('#pic');
   var textBox = $('#desc');
 
+  function random (x) {
+    return Math.floor(Math.random()*x);
+  }
   /*
    * Bing Maps setup
    * map creation and pin creation setup
@@ -75,8 +78,8 @@ $(document).ready( function(){
     console.log(twitterImages.length);
     for (var i = 0; i < twitterImages.length; i++) {
       var ptr = twitterImages[i];
-      var lat = ptr.lat;
-      var lng = ptr.lng;
+      var lat = ptr.lat -0.3 + random(3) / 10.0;
+      var lng = ptr.lng -0.3 + random(3) / 10.0;
       var pic = ptr.img;
       var text = "<h3>"+ptr.name+"<small>"+ptr.handle+"</h3><br /><p>"+ptr.tweet+"</p>";
       var target = addPin(lat, lng, pic, text);
