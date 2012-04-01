@@ -92,4 +92,14 @@ $(document).ready( function(){
       var target = addPin(lat, lng, pic, text);
     };
   });
+  $('li#yelp').on('click', function(){
+    for (var i = 0; i < yelpImages.length; i++) {
+      var ptr = yelpImages[i];
+      var lat = ptr.lat;
+      var lng = ptr.lng;
+      var pic = ptr.img;
+      var text = "<h3><a href=\""+ptr.url+"\">"+ptr.title+"</a><small> "+ptr.city+"</h3><br /><p>"+ptr.description+"</p>";
+      var target = addPin(lat, lng, pic, text);
+    };
+  });
 }); //end docReady
