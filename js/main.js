@@ -4,9 +4,16 @@ $(document).ready( function(){
   var infoList = $('div#info');
   var twitterData = "";
   var grouponData = "";
-  var images = new Array();
+  var twitterImages = new Array();
   var groupImages = new Array();
   var theWindow = $(window);
+  var picBox = $('#pic');
+  var textBox = $('#desc');
+
+  /*
+   * Bing Maps setup
+   * map creation and pin creation setup
+   */
   var map = null; 
   function getMap() {
     map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
@@ -25,6 +32,16 @@ $(document).ready( function(){
     });
   };  
 
+  function addPin(lat, lng, thumb, text) {
+    var pushpinOptions = {icon:thumb, width: 48, height: 48}; 
+    var pushpin= new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(lat,lng), pushpinOptions); 
+    pushpinClick = Microsoft.Maps.Events.addHandler(pushpin, 'click', function() {
+      picBox.html('<img src="'+thumb'">');
+      textBox.html(text);
+    });
+    map.entities.push(pushpin);
+  }
+
   $.ajax({
     type: 'POST',
     url: 'backend/controller.php',
@@ -38,8 +55,7 @@ $(document).ready( function(){
           var tweetID = current._id.$id;
           var image = new Image();
           image.src = pic;
-          images.push(image);
-          //preload.append($('<img id="'+tweetID+'" src="'+pic+'"/>'));
+          twitterImages.push(image);
           $.ajax({
             type: 'POST',
             url: 'backend/controller.php',
@@ -59,5 +75,21 @@ $(document).ready( function(){
       }
   }); //Preloads images
 
+  /*
+   * Bing Maps exectution
+   */
   getMap();
+  $('li#twitter').on('click', function(event){
+    event.preventDefautlt();
+    for (var i = 0; i < twitterImages.length; i++) {
+      var ptr = twitterImages[i];
+      var lat = ptr.lat;
+      var lng = ptr.lng;
+      var pic = ptr.img;
+      var text = "<h3>"+ptr.name+"<small>"+ptr.handle+"</h3><br /><p>"+ptr.tweet+"</p>";
+      var target = addPin(lat, lng, pic, text);
+    };
+
+
+
 }); //end docReady

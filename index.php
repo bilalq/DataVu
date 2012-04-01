@@ -19,11 +19,11 @@
           <li class="nav-header">Lens</li>
           <li id="twitter"><a href="#">Twitter</a></li>
           <li id="groupon"><a href="#">Groupon</a></li>
-          <li id="craigslist"><a href="#">Craigslist</a></li>
+          <li id="craigslist"><a href="#">Yelp</a></li>
         </ul>
         <ul id="info" class="nav nav-list">
           <li class="nav-header">Information</li>
-          <li><img id="photo" src="https://si0.twimg.com/profile_images/1808324679/image_normal.jpg"</li>
+          <li id="pic"><img id="photo" src="https://si0.twimg.com/profile_images/1808324679/image_normal.jpg"</li>
           <li id="desc">This is where a tweet would go. This is filler till then, no?</li>
         </ul>
       </div>
