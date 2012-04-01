@@ -8,7 +8,9 @@ div#sidebar {
   float: right;
 }
 
-canvas#map {
+#map {
   float:left;
-  width: 70%%;
+  width: 800px;
+  height:550px;
+  overflow: hidden;
 }

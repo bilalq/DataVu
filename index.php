@@ -17,14 +17,14 @@
       <div id="sidebar" class="pull-right well">
         <ul id="info" class="nav nav-list">
           <li class="nav-header">Lens</li>
-            <li id="twitter" class="active"><a href="#">Twitter</a></li>
-            <li><a href="#">Groupon</a></li>
-            <li><a href="#">Craigslist</a></li>
+          <li id="twitter"><a href="#">Twitter</a></li>
+          <li id="groupon"><a href="#">Groupon</a></li>
+          <li id="craigslist"><a href="#">Craigslist</a></li>
         </ul>
         <ul id="info" class="nav nav-list">
           <li class="nav-header">Information</li>
-            <li><img id="photo" src="https://twimg0-a.akamaihd.net/profile_images/1935926580/Capture_reasonably_small.PNG"</li>
-            <li id="desc">This is where a tweet would go. Amazing, no?</li>
+          <li><img id="photo" src="https://twimg0-a.akamaihd.net/profile_images/1935926580/Capture_reasonably_small.PNG"</li>
+          <li id="desc">This is where a tweet would go. Amazing, no?</li>
         </ul>
       </div>
     </div>
