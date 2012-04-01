@@ -7,8 +7,7 @@ $(document).ready( function(){
   var images = new Array();
   var groupImages = new Array();
   var theWindow = $(window);
-  var map = null;
-
+  var map = null; 
   function getMap() {
     map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
       credentials: 'Assd2akCabc9zZOrMER5t5DUkIHfUhvLuUawIyLYrno_IlOa4RU7iVYtVpgYbGn1',
@@ -60,4 +59,5 @@ $(document).ready( function(){
       }
   }); //Preloads images
 
+  getMap();
 }); //end docReady
