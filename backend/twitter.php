@@ -4,6 +4,8 @@
   require_once('points.php');
 
   $collection = $db->selectCollection('twitter');  
+  $collection->drop;
+  $collection = $db->selectCollection('twitter');  
 
   foreach ($pointsList as $point) {
     $currLat = $point['lat'];
