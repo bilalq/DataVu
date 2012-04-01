@@ -12,7 +12,6 @@
   <body>
     <div id="wrapper">
       <div class="page-header"><h1>DataVu <small>Twitter</small></h1></div>
-      <div id="preload"></div>
 
       <div id="myMap"></div>
       <div id="sidebar" class="pull-right well">
