@@ -11,10 +11,10 @@
     <div id="wrapper">
       <div class="page-header"><h1>DataVu <small>Twitter</small></h1></div>
 
-      <div id="map"> 
+      <canvas id="map"> 
         Placeholder for map here
         <br />stuff goes here
-      </div>
+      </canvas>
       <div id="sidebar" class="pull-right well">
         <ul id="info" class="nav nav-list">
           <li class="nav-header">Lens</li>

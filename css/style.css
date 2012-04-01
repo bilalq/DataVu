@@ -8,7 +8,7 @@ div#sidebar {
   float: right;
 }
 
-div#map {
+canvas#map {
   float:left;
   width: 70%%;
 }
