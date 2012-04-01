@@ -1,6 +1,5 @@
 $(document).ready( function(){
-
-  //Cached selectors
+//Cached selectors
   var infoList = $('div#info');
   var twitterData = "";
   var grouponData = "";
@@ -34,7 +33,6 @@ $(document).ready( function(){
   };  
 
   function addPin(lat, lng, thumb, text) {
-    map.entities.clear();
     var pushpinOptions = {icon:thumb, width: 48, height: 48}; 
     var pushpin= new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(lat,lng), pushpinOptions); 
     pushpinClick = Microsoft.Maps.Events.addHandler(pushpin, 'click', function() {
@@ -74,6 +72,7 @@ $(document).ready( function(){
    */
   getMap();
   $('li#twitter').on('click', function(){
+    console.log(twitterImages.length);
     for (var i = 0; i < twitterImages.length; i++) {
       var ptr = twitterImages[i];
       var lat = ptr.lat;
