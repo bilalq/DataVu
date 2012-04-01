@@ -15,15 +15,16 @@ $br_lat = 39;
 $br_long = -75.3;
  */
 
+$limit = 20;
 
 foreach ($pointsList as $point) {
 	$lat = $point['lat'];
 	$lng =$point['lng'];
 
-	yelpGetRest($lat, $lng, 15, $collection);
+	yelpGetRest($lat, $lng, 15, $limit, $collection);
 }
 
-function yelpGetRest($lat, $lng, $radius, $collection) {
+function yelpGetRest($lat, $lng, $radius, $limit, $collection) {
 
 /*
 	tl_lat	 double	 required	 Top left latitude of bounding box
@@ -38,9 +39,7 @@ function yelpGetRest($lat, $lng, $radius, $collection) {
 //		'&br_lat=' . $br_lat . '&br_long=' . $br_long;
 
 	
-	$request = '?lat=' . $lat . '&long=' . $lng . '&radius=' . $radius;
-
-	$request = $request; # . '&limit=1';
+	$request = '?lat=' . $lat . '&long=' . $lng . '&radius=' . $radius . '&limit=' . $limit;
 	
 	$jsonData = yelpRequest($request);
 
@@ -67,15 +66,14 @@ function yelpProcessJson($jsonData, $collection) {
 
 			$business_arr = array(
 				"id" => $business->id,
-        "name" => $business->name,
+		        "name" => $business->name,
 				"city" => $business->city,
 				"zip" => $business->zip,
 				"state" => $business->state,
 				"lat" => $business->latitude,
 				"lng" => $business->longitude,
 				"url" => $business->url,
-        "img" => $business->snippet_image_url,
-        "description" => $business->snippet_text,
+        		"img" => $business->photo_url,
 				"avg_rating" => $business->avg_rating,
 				"reviews" => array(
 					"text" => $business->reviews[0]->text_excerpt,
