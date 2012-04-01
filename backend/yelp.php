@@ -73,7 +73,8 @@ function yelpProcessJson($jsonData, $collection) {
 				"lat" => $business->latitude,
 				"lng" => $business->longitude,
 				"url" => $business->url,
-        		"img" => $business->photo_url,
+				"img" => $business->photo_url,
+				"img_small" => $business->photo_url_small,
 				"avg_rating" => $business->avg_rating,
 				"reviews" => array(
 					"text" => $business->reviews[0]->text_excerpt,
