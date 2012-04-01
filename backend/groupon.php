@@ -84,7 +84,7 @@ function encodeDeal($deal) {
 							"title" => $option->title,
 							"price" => $option->price->formattedAmount,
 							"expires" => $option->expiresAt,
-							"dealUrl" => $deal->dealUrl,
+							"url" => $deal->dealUrl,
 							"img" => $deal->sidebarImageUrl,
 							"description" => $option->details[0]->description,
 							#							"pitchHtml" => $deal->pitchHtml,
