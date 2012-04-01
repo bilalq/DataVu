@@ -11,9 +11,8 @@
     <div id="wrapper">
       <div class="page-header"><h1>DataVu <small>Twitter</small></h1></div>
 
-      <div id="map"> 
-        <img id="start" src="http://a0.twimg.com/profile_images/1794057463/livelevated-classified-ar-9_normal.jpg">
-      </div>
+      <canvas id="map"> 
+      </canvas>
       <div id="sidebar" class="pull-right well">
         <ul id="info" class="nav nav-list">
           <li class="nav-header">Lens</li>

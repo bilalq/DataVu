@@ -1,16 +1,24 @@
 $(document).ready( function(){
   
+  //Cached selectors
   var infoList = $('div#info');
   var twitterData = "";
   var grouponData = "";
   var canvas = $('div#map');
-  var entry = $('img#start');
 
-  function random () {
-    return Math.floor(Math.random()*30);
-  }
+  //Navbar links
+  var twitLink = $('li#twitter');
+  var groupLink = $('li#groupon');
 
-  $('li#twitter').on('click', function() {
+  
+  /*
+   * Twitter handling
+   * Draws tweets to the map
+   */
+  twitLink.on('click', function() {
+    twitLink.addClass('active');
+    groupLink.removeClass('active');
+
     if (twitterData.length == 0) {
       $.ajax({
         type: 'POST',
@@ -21,24 +29,6 @@ $(document).ready( function(){
         }
       });
     }
-    drawTweets(twitterData);
-  });
-
-  $('li#groupon').on('click', function() {
-    if (grouponData.length == 0) {
-      $.ajax({
-        type: 'POST',
-        url: 'backend/controller.php',
-        data: {'lens': 'groupon'},
-        success: function(response) {
-            grouponData = $.parseJSON(response);
-        }
-      });
-    }
-    drawGroups(twitterData);
-  });
-
-  function drawTweets (target) {
     for (var i = 0; i < target.length; i++) {
       var current = target[i];
       var lat = current.lat;
@@ -49,21 +39,45 @@ $(document).ready( function(){
 
       console.log(random());
       $('<img id="'+tweetID+'" src="'+pic+'"/>')
-        .insertAfter(entry)
+        .append(canvas)
         .css({
           'position': 'absolute',
           'top': 550.0 * (41.39 - lat)/(41.39-39.0),
           'left': 800 * (-lng - 74) / (0.95)
-
-          //'bottom': -((-lat) * 550 / 39 + 15 - random()) - 78 +'px',
-          //'right': - (lng * 800 / 74 + 15 - random()) + 'px',
-
-//(Pixels from left side) = (total width in pixels) * ((geocode distance between left and your point) / (geocode distance between left side and right side))
-          //'bottom': (lng - 39) * 570 / 2.38 + 15 +'px',
-          //'right': 300 + (-lat - 73.9) * 800 / 0.9 + 15 - random() +'px',
         });
 
     };
+  });
+
+
+  /*
+   * Groupon handler
+   * Finds deals and draws related images on map.
+   */
+  groupLink.on('click', function() {
+    groupLink.addClass('active');
+    twitLink.removeClass('active');
+    if (grouponData.length == 0) {
+      $.ajax({
+        type: 'POST',
+        url: 'backend/controller.php',
+        data: {'lens': 'groupon'},
+        success: function(response) {
+            grouponData = $.parseJSON(response);
+        }
+      });
+    }
+    for (var i = 0; i < grouponData.length; i++) {
+      var current = grouponData[i];
+    };
+  });
+
+
+  /*
+   * Generates random number from 1 to X.
+   */
+  function random (x) {
+    return Math.floor(Math.random()*x);
   }
 
 }); //end docReady
