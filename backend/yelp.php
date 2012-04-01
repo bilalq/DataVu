@@ -15,7 +15,7 @@ $br_lat = 39;
 $br_long = -75.3;
  */
 
-$limit = 20;
+$limit = 7;
 
 foreach ($pointsList as $point) {
 	$lat = $point['lat'];
