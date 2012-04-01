@@ -66,15 +66,14 @@ function yelpProcessJson($jsonData, $collection) {
 
 			$business_arr = array(
 				"id" => $business->id,
-        "name" => $business->name,
+		        "name" => $business->name,
 				"city" => $business->city,
 				"zip" => $business->zip,
 				"state" => $business->state,
 				"lat" => $business->latitude,
 				"lng" => $business->longitude,
 				"url" => $business->url,
-        "img" => $business->snippet_image_url,
-        "description" => $business->snippet_text,
+        		"img" => $business->photo_url,
 				"avg_rating" => $business->avg_rating,
 				"reviews" => array(
 					"text" => $business->reviews[0]->text_excerpt,
