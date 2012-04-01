@@ -25,7 +25,7 @@
         </ul>
         <ul id="info" class="nav nav-list">
           <li class="nav-header">Information</li>
-          <li><img id="photo" src="https://si0.twimg.com/profile_images/1808324679/image_normal.jpg"</li>
+          <li id="pic"><img id="photo" src="https://si0.twimg.com/profile_images/1808324679/image_normal.jpg"</li>
           <li id="desc">This is where a tweet would go. This is filler till then, no?</li>
         </ul>
       </div>
