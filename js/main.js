@@ -24,11 +24,12 @@ $(document).ready( function(){
       disableZooming: true,
       showDashboard: false,
       showScalebar: false,
-      width: '700',
-      height: '800',
+      width: '800',
+      height: '1200',
 //      mapTypeId: Microsoft.Maps.MapTypeId.mercator,
-      zoom: 8,
-      center: new Microsoft.Maps.Location(40.0393264770508, -74.5893569946289)
+      zoom: 9,
+      //center: new Microsoft.Maps.Location(40.0393264770508, -74.5893569946289)
+      center: new Microsoft.Maps.Location(40.1393264770508, -74.6893569946289)
     });
   };  
 

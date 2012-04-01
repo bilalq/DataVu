@@ -16,15 +16,15 @@ div#sidebar {
 }
 
 #myMapContainer {
-  float:left;
-	width: 800px;
-	height: 800px;
-	overflow: hidden;
+  	float:left;
+/*	width: 800px;
+	height: 900px;
+	overflow: hidden;*/
 }
 
 #myMap {
 	float: left;
-	zoom: 150%;
+	/*zoom: 150%; */
 /*	crop: auto;rect(0px, 800px, 85px, 30px)*/
 }
 
