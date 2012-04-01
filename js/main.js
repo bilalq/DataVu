@@ -24,10 +24,10 @@ $(document).ready( function(){
       disableZooming: true,
       showDashboard: false,
       showScalebar: false,
-      width: '800px',
-      height: '400px',
-      mapTypeId: Microsoft.Maps.MapTypeId.mercator,
-      zoom: 5,
+      width: '700',
+      height: '800',
+//      mapTypeId: Microsoft.Maps.MapTypeId.mercator,
+      zoom: 8,
       center: new Microsoft.Maps.Location(40.0393264770508, -74.5893569946289)
     });
   };  

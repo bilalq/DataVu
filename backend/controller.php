@@ -31,8 +31,8 @@ if(!empty($_POST['lens'])) {
 		$jsons = json_encode($congregate);
 		echo $jsons;
 		break;
-	case "craigslist":
-		$collection = $db->selectCollection('craigslist');
+	case "yelp":
+		$collection = $db->selectCollection('yelp');
 		$cursor = $collection->find();
 
 		$congregate = array();
