@@ -5,6 +5,7 @@ $(document).ready( function(){
   var grouponData = "";
   var twitterImages = new Array();
   var groupImages = new Array();
+  var yelpImages = new Array();
   var theWindow = $(window);
   var picBox = $('#pic');
   var textBox = $('#desc');
@@ -28,7 +29,7 @@ $(document).ready( function(){
       showScalebar: false,
       width: '800',
       height: '1200',
-//      mapTypeId: Microsoft.Maps.MapTypeId.mercator,
+//    mapTypeId: Microsoft.Maps.MapTypeId.mercator,
       zoom: 9,
       //center: new Microsoft.Maps.Location(40.0393264770508, -74.5893569946289)
       center: new Microsoft.Maps.Location(40.1393264770508, -74.6893569946289)
@@ -64,6 +65,18 @@ $(document).ready( function(){
                   var curr = grouponData[i];
                   groupImages.push(curr);
                 }
+                $.ajax({
+                  type: 'POST',
+                  url: 'backend/controller.php',
+                  data: {'lens': 'yelp'},
+                  success: function(response) {
+                      yelpData = $.parseJSON(response);
+                      for (var i = 0; i < yelpData.length; i++) {
+                        var curr = yelpData[i];
+                        yelpImages.push(curr);
+                      }
+                  }
+                });
             }
           });
         }
@@ -101,7 +114,7 @@ $(document).ready( function(){
       var lat = ptr.lat;
       var lng = ptr.lng;
       var pic = ptr.img;
-      var text = "<h3><a href=\""+ptr.url+"\">"+ptr.title+"</a><small> "+ptr.city+"</h3><br /><p>"+ptr.description+"</p>";
+      var text = "<h3><a href=\""+ptr.url+"\">"+ptr.name+"</a><small> "+ptr.city+"</h3><br /></p>";
       var target = addPin(lat, lng, pic, text);
     };
   });
